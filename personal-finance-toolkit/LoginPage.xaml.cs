@@ -33,10 +33,12 @@ namespace personal_finance_toolkit
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
+            // For testing, to be replaced with db auth
             if (usernameBox.Text == testUsername && passwordBox.Password == testPassword)
             {
+                string userId = Guid.NewGuid().ToString();
                 MessageBox.Show("Login successful");
-                NavigationService?.Navigate(new MainPage());
+                NavigationService?.Navigate(new DashboardPage(userId, usernameBox.Text));
             }
             else
             {

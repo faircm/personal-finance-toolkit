@@ -21,7 +21,14 @@ namespace personal_finance_toolkit
         public MainWindow()
         {
             InitializeComponent();
-            mainFrame.Navigate(new LoginPage());
+            if (!isAuthenticated)
+            {
+                mainFrame.Navigate(new LoginPage());
+            }
+            else
+            {
+                mainFrame.Navigate(new DashboardPage("userId", "username"));
+            }
         }
     }
 }
